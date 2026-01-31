@@ -78,7 +78,7 @@ const stressWords = [
     { correct: "надевИт", incorrect: "надЕвит", hint: "Буд. время: ударение на последний слог" },
     { correct: "нАжилась", incorrect: "нажилАсь", hint: "Прош. время ж.р.: ударение на первый слог" },
     { correct: "налитА", incorrect: "нАлита", hint: "Краткая форма ж.р.: ударение на окончание" },
-    { correct: "нарвалА", incorrect: "нАрвала", hint: "Прош. время ж.р.: ударение на окончание" },
+    { correct: "нарвалА", incorrect: "нарвАла", hint: "Прош. время ж.р.: ударение на окончание" },
     { correct: "начАть", incorrect: "нАчать", hint: "Инфинитив: ударение на последний слог" },
     { correct: "облегчИть", incorrect: "облЕгчить", hint: "Инфинитив: ударение на последний слог" },
     { correct: "обнялАсь", incorrect: "Обнялась", hint: "Прош. время ж.р.: ударение на окончание" },
@@ -363,4 +363,5 @@ window.addEventListener('DOMContentLoaded', function() {
     updateProgress();
 
 });
+
 
