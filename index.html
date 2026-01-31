@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажер ЕГЭ по русскому языку</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Главный экран -->
+    <div id="main-screen" class="screen active">
+        <div class="container">
+            <h1><i class="fas fa-graduation-cap"></i> Тренажер заданий ЕГЭ по русскому языку</h1>
+            <p class="subtitle">Выберите тип задания для подготовки</p>
+            
+            <div class="trainer-options">
+                <div class="option" id="paronyms">
+                    <div class="option-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Паронимы</h3>
+                    <p>Задание 5: Слова, схожие по звучанию</p>
+                    <div class="badge">Скоро</div>
+                </div>
+                
+                <div class="option active-option" id="stress">
+                    <div class="option-icon">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <h3>Ударения</h3>
+                    <p>Задание 4: Постановка ударения в словах</p>
+                    <div class="badge active-badge">Доступно</div>
+                </div>
+                
+                <div class="option" id="spelling">
+                    <div class="option-icon">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <h3>Орфография</h3>
+                    <p>Задания 9-15: Правописание слов</p>
+                    <div class="badge">Скоро</div>
+                </div>
+            </div>
+            
+            <div class="start-section">
+                <p id="selected-trainer">Выбран: <span>Задание 4: Ударения</span></p>
+                <button id="start-btn" class="btn-primary">
+                    <i class="fas fa-play"></i> Начать тренировку
+                </button>
+            </div>
+            
+            <div class="stats">
+                <p><i class="fas fa-info-circle"></i> Более 100 слов из банка ФИПИ для задания 4</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Экран тренировки -->
+    <div id="training-screen" class="screen">
+        <div class="container">
+            <div class="training-header">
+                <button id="back-btn" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> Назад
+                </button>
+                
+                <div class="progress-info">
+                    <h2><i class="fas fa-volume-up"></i> Задание 4: Ударения</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <div class="progress-text">
+                            Слов пройдено: <span id="words-done">0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="score-container">
+                    <div class="score-box">
+                        <div class="score-label">Правильно</div>
+                        <div class="score-value" id="correct-count">0</div>
+                        <div class="score-percent" id="correct-percent">0%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="task-container">
+                <div class="task-instruction">
+                    <p><i class="fas fa-lightbulb"></i> Выберите вариант с правильной постановкой ударения</p>
+                </div>
+                
+                <div class="cards-container">
+                    <div class="card" id="card1">
+                        <div class="word" id="word1"></div>
+                        <div class="hint">Нажмите для выбора</div>
+                    </div>
+                    
+                    <div class="divider">
+                        <span>или</span>
+                    </div>
+                    
+                    <div class="card" id="card2">
+                        <div class="word" id="word2"></div>
+                        <div class="hint">Нажмите для выбора</div>
+                    </div>
+                </div>
+                
+                <div class="feedback" id="feedback">
+                    <div id="feedback-text"></div>
+                    <div id="explanation"></div>
+                </div>
+                
+                <div class="actions">
+                    <button id="next-btn" class="btn-primary">
+                        <i class="fas fa-forward"></i> Следующее слово
+                    </button>
+                    <button id="hint-btn" class="btn-secondary">
+                        <i class="fas fa-question-circle"></i> Подсказка
+                    </button>
+                </div>
+            </div>
+            
+            <div class="words-counter">
+                <p><i class="fas fa-infinity"></i> Режим: Бесконечная тренировка</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
