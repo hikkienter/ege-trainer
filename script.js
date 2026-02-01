@@ -118,26 +118,47 @@ const stressWords = [
     { correct: "щЕмит", incorrect: "щемИт", hint: "Настоящее время: ударение на первый слог" },
 ];
 
-// Функция для форматирования слова с выделением ударной буквы
-function formatWordWithStress(word) {
-    // Находим ударную гласную (она заглавная в исходных данных)
-    const letters = word.split('');
-    let result = '';
+// Обработка выбора карточки (ЗАМЕНИТЕ старые обработчики, строки ~122-140)
+card1.addEventListener('click', function() {
+    if (isAnswered) return;
+    // Проверяем, является ли слово в этой карточке правильным вариантом
+    const isCorrect = currentWordData.correct.toLowerCase() === getWordTextWithoutTags(word1.innerHTML).toLowerCase();
+    checkAnswer(isCorrect, card1, card2);
+});
+
+card2.addEventListener('click', function() {
+    if (isAnswered) return;
+    const isCorrect = currentWordData.correct.toLowerCase() === getWordTextWithoutTags(word2.innerHTML).toLowerCase();
+    checkAnswer(isCorrect, card2, card1);
+});
+
+// Новая вспомогательная функция: извлекает чистый текст из HTML
+function getWordTextWithoutTags(html) {
+    // Создаём временный элемент, помещаем в него HTML и получаем чистый текст
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+    return tempDiv.textContent || tempDiv.innerText || '';
+}
+
+// Проверка ответа (можно оставить без изменений, если isCorrect передаётся верно)
+function checkAnswer(isCorrect, selectedCard, otherCard) {
+    isAnswered = true;
+    totalAttempts++;
+    wordsDone++;
     
-    for (let i = 0; i < letters.length; i++) {
-        const letter = letters[i];
-        const isUppercase = letter === letter.toUpperCase();
-        const isVowel = 'АЕЁИОУЫЭЮЯаеёиоуыэюя'.includes(letter);
-        
-        if (isUppercase && isVowel) {
-            // Ударная гласная - делаем подчеркнутой
-            result += `<span class="stress">${letter}</span>`;
-        } else {
-            // Остальные буквы в нижнем регистре
-            result += letter.toLowerCase();
-        }
+    if (isCorrect) {
+        selectedCard.classList.add('correct');
+        otherCard.classList.add('incorrect');
+        correctAnswers++;
+        showFeedback(true);
+    } else {
+        selectedCard.classList.add('incorrect');
+        otherCard.classList.add('correct');
+        showFeedback(false);
     }
     
+    updateProgress();
+}
     return result;
 }
 
@@ -363,6 +384,7 @@ window.addEventListener('DOMContentLoaded', function() {
     updateProgress();
 
 });
+
 
 
 
