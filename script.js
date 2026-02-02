@@ -192,21 +192,47 @@ const correctPercent = document.getElementById('correct-percent');
 // Выбор тренажера на главной странице
 document.querySelectorAll('.option').forEach(option => {
     option.addEventListener('click', function() {
+        // Убираем активный класс у всех опций
+        document.querySelectorAll('.option').forEach(opt => {
+            opt.classList.remove('active-option');
+        });
+        
+        // Добавляем активный класс к выбранной опции
+        this.classList.add('active-option');
+        
+        // Обновляем текст выбранного тренажера
+        const trainerName = this.querySelector('h3').textContent;
+        const trainerDesc = this.querySelector('p').textContent;
+        selectedTrainerText.textContent = trainerDesc;
+        
+        // Активируем кнопку "Начать тренировку" для ЛЮБОЙ опции
+        // (или только для 'stress' если другие не готовы)
         if (this.id === 'stress') {
-            // Убираем активный класс у всех опций
-            document.querySelectorAll('.option').forEach(opt => {
-                opt.classList.remove('active-option');
-            });
-            
-            // Добавляем активный класс к выбранной опции
-            this.classList.add('active-option');
-            
-            // Активируем кнопку "Начать тренировку"
             startBtn.disabled = false;
+            startBtn.style.opacity = "1";
+            startBtn.style.cursor = "pointer";
+        } else {
+            startBtn.disabled = true;
+            startBtn.style.opacity = "0.5";
+            startBtn.style.cursor = "not-allowed";
         }
     });
 });
 
+// При загрузке страницы активируем кнопку для выбранного по умолчанию тренажера
+window.addEventListener('DOMContentLoaded', function() {
+    // По умолчанию выбран тренажер "Ударения"
+    document.getElementById('stress').classList.add('active-option');
+    selectedTrainerText.textContent = "Задание 4: Ударения";
+    
+    // Активируем кнопку сразу
+    startBtn.disabled = false;
+    startBtn.style.opacity = "1";
+    startBtn.style.cursor = "pointer";
+    
+    // Инициализируем прогресс
+    updateProgress();
+});
 // Запуск тренировки
 startBtn.addEventListener('click', function() {
     // Сбрасываем прогресс
@@ -384,6 +410,7 @@ window.addEventListener('DOMContentLoaded', function() {
     updateProgress();
 
 });
+
 
 
 
