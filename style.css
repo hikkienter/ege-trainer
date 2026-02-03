@@ -167,7 +167,7 @@ h1 i {
     gap: 10px;
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
 }
@@ -336,7 +336,7 @@ h1 i {
     justify-content: center;
 }
 
-.card:hover {
+.card:hover:not(.correct):not(.incorrect) {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     border-color: #3498db;
@@ -503,7 +503,4 @@ h1 i {
     .divider span {
         padding: 6px 14px;
     }
-
 }
-
-
