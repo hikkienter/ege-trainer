@@ -115,7 +115,7 @@ const stressWords = [
     { correct: "углубИть", incorrect: "углУбить", hint: "Инфинитив: ударение на последний слог" },
     { correct: "чЕрпать", incorrect: "черпАть", hint: "Инфинитив: ударение на первый слог" },
     { correct: "щЕмко", incorrect: "щемкО", hint: "Наречие: ударение на первый слог" },
-    { correct: "щЕмит", incorrect: "щемИт", hint: "Настоящее время: ударение на первый слог" }
+    { correct: "щемИт", incorrect: "щЕмит", hint: "Настоящее время: ударение на первый слог" }
 ];
 
 // Функция для форматирования слова с выделением ударной буквы
@@ -356,4 +356,5 @@ window.addEventListener('DOMContentLoaded', function() {
     
     updateProgress();
 });
+
 
