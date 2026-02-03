@@ -1,164 +1,26 @@
 // Данные для тренажера ударений (Задание 4 ЕГЭ)
 const stressWords = [
     { correct: "звонИт", incorrect: "звОнит", hint: "Глаголы на -ить: ударение на окончание" },
-    { correct: "крАны", incorrect: "кранЫ", hint: "Мн.ч.: ударение часто остаётся на том же слоге, что и в ед.ч." },
-    { correct: "средствА", incorrect: "срЕдства", hint: "Во мн.ч. ударение переходит на окончание" },
-    { correct: "дОгмат", incorrect: "догмАт", hint: "Заимствованные слова часто сохраняют ударение языка-источника" },
-    { correct: "прИнял", incorrect: "принЯл", hint: "В прош. времени ударение может переходить на приставку" },
-    { correct: "каталОг", incorrect: "катАлог", hint: "Заимствованное слово, ударение фиксированное на последнем слоге" },
-    { correct: "тОрты", incorrect: "тортЫ", hint: "Ударение неподвижное во всех формах" },
-    { correct: "баловАть", incorrect: "бАловать", hint: "Глаголы на -овать: ударение на последний слог" },
-    { correct: "вероисповЕдание", incorrect: "вероисповедАние", hint: "Производное от слова 'исповЕдать'" },
-    { correct: "граждАнство", incorrect: "грАжданство", hint: "Суффикс -анств- часто имеет ударение" },
-    { correct: "дефИс", incorrect: "дЕфис", hint: "Заимствованное слово, ударение на второй слог" },
-    { correct: "диспансЕр", incorrect: "диспАнсер", hint: "Заимствование из французского языка" },
-    { correct: "договорЁнность", incorrect: "договОренность", hint: "Образовано от 'договорИть', сохраняет ударение" },
-    { correct: "донЕльзя", incorrect: "донельзЯ", hint: "Наречие, ударение фиксированное" },
-    { correct: "закУпорить", incorrect: "закупОрить", hint: "Глагол, ударение на первый слог" },
-    { correct: "знАчимость", incorrect: "значИмость", hint: "Производное от 'знАчимый'" },
-    { correct: "Иксы", incorrect: "иксЫ", hint: "Названия букв: ударение на первый слог" },
-    { correct: "квартАл", incorrect: "квАртал", hint: "В значении 'четверть года' ударение на последний слог" },
-    { correct: "кОнусов", incorrect: "конусОв", hint: "Род.падеж мн.ч.: ударение часто остаётся на основе" },
-    { correct: "корЫсть", incorrect: "кОрысть", hint: "Существительное, ударение на второй слог" },
-    { correct: "кремЕнь", incorrect: "крЕмень", hint: "Ударение на последний слог" },
-    { correct: "кремнЯ", incorrect: "крЕмня", hint: "Род.падеж: ударение на окончание" },
-    { correct: "лЕкторов", incorrect: "лекторОв", hint: "Род.падеж мн.ч. профессий: ударение часто на первый слог" },
-    { correct: "лОктя", incorrect: "локтЯ", hint: "Род.падеж: ударение на первый слог" },
-    { correct: "местностЕй", incorrect: "мЕстностей", hint: "Род.падеж мн.ч.: ударение на окончание" },
-    { correct: "намЕрение", incorrect: "намерЕние", hint: "Существительное, ударение на второй слог" },
-    { correct: "нарОст", incorrect: "нАрост", hint: "Ударение на второй слог" },
-    { correct: "нЕдруг", incorrect: "недрУг", hint: "Слова с приставкой не- часто сохраняют ударение исходного слова" },
-    { correct: "недУг", incorrect: "нЕдуг", hint: "Ударение на второй слог" },
-    { correct: "нЕнависть", incorrect: "ненАвисть", hint: "Ударение на первый слог" },
-    { correct: "нефтепровОд", incorrect: "нефтепрОвод", hint: "Сложные слова с -вод: ударение на последний слог" },
-    { correct: "новорождЁнный", incorrect: "новорОжденный", hint: "Слова с буквой Ё: ударение всегда на Ё" },
-    { correct: "нОгтя", incorrect: "ногтЯ", hint: "Род.падеж: ударение на первый слог" },
-    { correct: "отрОчество", incorrect: "Отрочество", hint: "Ударение на второй слог" },
-    { correct: "партЕр", incorrect: "пАртер", hint: "Заимствованное слово, ударение на последний слог" },
-    { correct: "портфЕль", incorrect: "пОртфель", hint: "Ударение на последний слог" },
-    { correct: "пОручни", incorrect: "порУчни", hint: "Ударение на первый слог" },
-    { correct: "придАное", incorrect: "прИданое", hint: "Ударение на второй слог" },
-    { correct: "призЫв", incorrect: "прИзыв", hint: "Ударение на последний слог" },
-    { correct: "свЁкла", incorrect: "свеклА", hint: "Слова с буквой Ё: ударение всегда на Ё" },
-    { correct: "сирОты", incorrect: "сИроты", hint: "Мн.ч.: ударение на второй слог" },
-    { correct: "созЫв", incorrect: "сОзыв", hint: "Ударение на последний слог" },
-    { correct: "сосредотОчение", incorrect: "сосредоточЕние", hint: "Ударение на предпоследний слог" },
-    { correct: "стАтуя", incorrect: "статУя", hint: "Ударение на первый слог" },
-    { correct: "столЯр", incorrect: "стОляр", hint: "Названия профессий: ударение часто на последний слог" },
-    { correct: "тамОжня", incorrect: "тАможня", hint: "Ударение на второй слог" },
-    { correct: "тУфля", incorrect: "туфлЯ", hint: "Ударение на первый слог" },
-    { correct: "цемЕнт", incorrect: "цЕмент", hint: "Ударение на последний слог" },
-    { correct: "цЕнтнер", incorrect: "центнЕр", hint: "Заимствованное слово, ударение на первый слог" },
-    { correct: "цепОчка", incorrect: "цЕпочка", hint: "Ударение на второй слог" },
-    { correct: "шАрфы", incorrect: "шарфЫ", hint: "Мн.ч.: ударение часто остаётся на том же слоге" },
-    { correct: "шофЁр", incorrect: "шОфер", hint: "Слова с буквой Ё: ударение всегда на Ё" },
-    { correct: "щекОта", incorrect: "щЕкота", hint: "Ударение на последний слог" },
-    { correct: "экспЕрт", incorrect: "Эксперт", hint: "Заимствованное слово, ударение на второй слог" },
-    { correct: "вернА", incorrect: "вЕрна", hint: "Краткие формы прилагательных ж.р.: ударение на окончание" },
-    { correct: "знАчимый", incorrect: "значИмый", hint: "Прилагательное, ударение на первый слог" },
-    { correct: "кУхонный", incorrect: "кухОнный", hint: "Прилагательное, ударение на первый слог" },
-    { correct: "ловкА", incorrect: "лОвка", hint: "Краткая форма ж.р.: ударение на окончание" },
-    { correct: "мозаИчный", incorrect: "мозАичный", hint: "Прилагательное, ударение на третий слог" },
-    { correct: "оптОвый", incorrect: "Оптовый", hint: "Прилагательное, ударение на второй слог" },
-    { correct: "откУпорить", incorrect: "откупОрить", hint: "Глагол, ударение на первый слог" },
-    { correct: "повторЁнный", incorrect: "повтОренный", hint: "Причастие с Ё: ударение всегда на Ё" },
-    { correct: "полилА", incorrect: "пОлила", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "прожИвший", incorrect: "прОживший", hint: "Причастие, ударение на второй слог" },
-    { correct: "снятА", incorrect: "снЯта", hint: "Краткое причастие ж.р.: ударение на окончание" },
-    { correct: "загрУжен", incorrect: "загружЕн", hint: "Краткое причастие: ударение на второй слог" },
-    { correct: "зАгнутый", incorrect: "загнУтый", hint: "Причастие, ударение на приставку" },
-    { correct: "зАгодя", incorrect: "загодЯ", hint: "Наречие, ударение на первый слог" },
-    { correct: "занятА", incorrect: "зАнята", hint: "Краткая форма ж.р.: ударение на окончание" },
-    { correct: "запертА", incorrect: "зАперта", hint: "Краткая форма ж.р.: ударение на окончание" },
-    { correct: "звалА", incorrect: "звАла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "клАла", incorrect: "клалА", hint: "Прош. время ж.р.: ударение на первый слог" },
-    { correct: "крАлась", incorrect: "кралАсь", hint: "Прош. время ж.р.: ударение на первый слог" },
-    { correct: "лилА", incorrect: "лИла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "лилАсь", incorrect: "лИлась", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "надевИт", incorrect: "надЕвит", hint: "Буд. время: ударение на последний слог" },
-    { correct: "нАжилась", incorrect: "нажилАсь", hint: "Прош. время ж.р.: ударение на первый слог" },
-    { correct: "налитА", incorrect: "нАлита", hint: "Краткая форма ж.р.: ударение на окончание" },
-    { correct: "нарвалА", incorrect: "нарвАла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "начАть", incorrect: "нАчать", hint: "Инфинитив: ударение на последний слог" },
-    { correct: "облегчИть", incorrect: "облЕгчить", hint: "Инфинитив: ударение на последний слог" },
-    { correct: "обнялАсь", incorrect: "Обнялась", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "обогналА", incorrect: "обогнАла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "ободралА", incorrect: "ободрАла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "ободренА", incorrect: "обОдрена", hint: "Краткая форма ж.р.: ударение на окончание" },
-    { correct: "обострИть", incorrect: "обОстрить", hint: "Инфинитив: ударение на последний слог" },
-    { correct: "одолжИть", incorrect: "одОлжить", hint: "Инфинитив: ударение на последний слог" },
-    { correct: "озлОбить", incorrect: "озлобИть", hint: "Инфинитив: ударение на второй слог" },
-    { correct: "оклЕить", incorrect: "Оклеить", hint: "Инфинитив: ударение на второй слог" },
-    { correct: "окружИт", incorrect: "окрУжит", hint: "Буд. время: ударение на последний слог" },
-    { correct: "освЕдомиться", incorrect: "осведомИться", hint: "Инфинитив: ударение на третий слог" },
-    { correct: "отбылА", incorrect: "Отбыла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "отдалА", incorrect: "Отдала", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "отозвалА", incorrect: "отозвАла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "отозванА", incorrect: "отОзвана", hint: "Краткая форма ж.р.: ударение на окончание" },
-    { correct: "перелилА", incorrect: "перелИла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "перезвонИт", incorrect: "перезвОнит", hint: "Буд. время: ударение на последний слог" },
-    { correct: "перекрОить", incorrect: "перекроИть", hint: "Инфинитив: ударение на второй слог" },
-    { correct: "плодоносИть", incorrect: "плодонОсить", hint: "Инфинитив: ударение на последний слог" },
-    { correct: "повторИт", incorrect: "повтОрит", hint: "Буд. время: ударение на последний слог" },
-    { correct: "позвалА", incorrect: "позвАла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "положИл", incorrect: "полОжил", hint: "Прош. время: ударение на последний слог" },
-    { correct: "понялА", incorrect: "пОняла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "послАла", incorrect: "пОслала", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "прибЫв", incorrect: "прИбыв", hint: "Деепричастие: ударение на последний слог" },
-    { correct: "прИбыл", incorrect: "прибЫл", hint: "Прош. время: ударение на первый слог" },
-    { correct: "принЯв", incorrect: "прИняв", hint: "Деепричастие: ударение на последний слог" },
-    { correct: "рвалА", incorrect: "рвАла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "снялА", incorrect: "снЯла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "сорвалА", incorrect: "сорвАла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "создалА", incorrect: "создАла", hint: "Прош. время ж.р.: ударение на окончание" },
-    { correct: "созданА", incorrect: "сОздана", hint: "Краткая форма ж.р.: ударение на окончание" },
-    { correct: "углубИть", incorrect: "углУбить", hint: "Инфинитив: ударение на последний слог" },
-    { correct: "чЕрпать", incorrect: "черпАть", hint: "Инфинитив: ударение на первый слог" },
-    { correct: "щЕмко", incorrect: "щемкО", hint: "Наречие: ударение на первый слог" },
-    { correct: "щЕмит", incorrect: "щемИт", hint: "Настоящее время: ударение на первый слог" },
+    // ... остальные слова (оставьте как есть)
 ];
 
-// Обработка выбора карточки (ЗАМЕНИТЕ старые обработчики, строки ~122-140)
-card1.addEventListener('click', function() {
-    if (isAnswered) return;
-    // Проверяем, является ли слово в этой карточке правильным вариантом
-    const isCorrect = currentWordData.correct.toLowerCase() === getWordTextWithoutTags(word1.innerHTML).toLowerCase();
-    checkAnswer(isCorrect, card1, card2);
-});
-
-card2.addEventListener('click', function() {
-    if (isAnswered) return;
-    const isCorrect = currentWordData.correct.toLowerCase() === getWordTextWithoutTags(word2.innerHTML).toLowerCase();
-    checkAnswer(isCorrect, card2, card1);
-});
-
-// Новая вспомогательная функция: извлекает чистый текст из HTML
-function getWordTextWithoutTags(html) {
-    // Создаём временный элемент, помещаем в него HTML и получаем чистый текст
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = html;
-    return tempDiv.textContent || tempDiv.innerText || '';
-}
-
-// Проверка ответа (можно оставить без изменений, если isCorrect передаётся верно)
-function checkAnswer(isCorrect, selectedCard, otherCard) {
-    isAnswered = true;
-    totalAttempts++;
-    wordsDone++;
+// Функция для форматирования слова с выделением ударной буквы
+function formatWordWithStress(word) {
+    const letters = word.split('');
+    let result = '';
     
-    if (isCorrect) {
-        selectedCard.classList.add('correct');
-        otherCard.classList.add('incorrect');
-        correctAnswers++;
-        showFeedback(true);
-    } else {
-        selectedCard.classList.add('incorrect');
-        otherCard.classList.add('correct');
-        showFeedback(false);
+    for (let i = 0; i < letters.length; i++) {
+        const letter = letters[i];
+        const isUppercase = letter === letter.toUpperCase();
+        const isVowel = 'АЕЁИОУЫЭЮЯаеёиоуыэюя'.includes(letter);
+        
+        if (isUppercase && isVowel) {
+            result += `<span class="stress">${letter}</span>`;
+        } else {
+            result += letter.toLowerCase();
+        }
     }
     
-    updateProgress();
-}
     return result;
 }
 
@@ -188,10 +50,13 @@ const progressFill = document.getElementById('progress-fill');
 const wordsDoneEl = document.getElementById('words-done');
 const correctCount = document.getElementById('correct-count');
 const correctPercent = document.getElementById('correct-percent');
+const selectedTrainerText = document.querySelector('#selected-trainer span');
 
-// Выбор тренажера на главной странице
+// ВЫБОР ТРЕНАЖЕРА - ИСПРАВЛЕННЫЙ КОД
 document.querySelectorAll('.option').forEach(option => {
     option.addEventListener('click', function() {
+        console.log('Кликнули на опцию:', this.id);
+        
         // Убираем активный класс у всех опций
         document.querySelectorAll('.option').forEach(opt => {
             opt.classList.remove('active-option');
@@ -201,40 +66,23 @@ document.querySelectorAll('.option').forEach(option => {
         this.classList.add('active-option');
         
         // Обновляем текст выбранного тренажера
-        const trainerName = this.querySelector('h3').textContent;
         const trainerDesc = this.querySelector('p').textContent;
         selectedTrainerText.textContent = trainerDesc;
         
-        // Активируем кнопку "Начать тренировку" для ЛЮБОЙ опции
-        // (или только для 'stress' если другие не готовы)
+        // Активируем кнопку для доступных тренажеров
         if (this.id === 'stress') {
             startBtn.disabled = false;
-            startBtn.style.opacity = "1";
-            startBtn.style.cursor = "pointer";
+            console.log('Кнопка активирована');
         } else {
             startBtn.disabled = true;
-            startBtn.style.opacity = "0.5";
-            startBtn.style.cursor = "not-allowed";
         }
     });
 });
 
-// При загрузке страницы активируем кнопку для выбранного по умолчанию тренажера
-window.addEventListener('DOMContentLoaded', function() {
-    // По умолчанию выбран тренажер "Ударения"
-    document.getElementById('stress').classList.add('active-option');
-    selectedTrainerText.textContent = "Задание 4: Ударения";
-    
-    // Активируем кнопку сразу
-    startBtn.disabled = false;
-    startBtn.style.opacity = "1";
-    startBtn.style.cursor = "pointer";
-    
-    // Инициализируем прогресс
-    updateProgress();
-});
-// Запуск тренировки
+// ЗАПУСК ТРЕНИРОВКИ
 startBtn.addEventListener('click', function() {
+    console.log('Нажата кнопка "Начать тренировку"');
+    
     // Сбрасываем прогресс
     correctAnswers = 0;
     totalAttempts = 0;
@@ -253,17 +101,16 @@ startBtn.addEventListener('click', function() {
     trainingScreen.classList.add('active');
 });
 
-// Возврат на главный экран
+// ВОЗВРАТ НА ГЛАВНЫЙ ЭКРАН
 backBtn.addEventListener('click', function() {
     trainingScreen.classList.remove('active');
     mainScreen.classList.add('active');
 });
 
-// Обработка выбора карточки
+// ОБРАБОТКА ВЫБОРА КАРТОЧКИ
 card1.addEventListener('click', function() {
     if (isAnswered) return;
     
-    // Получаем текст из карточки (без HTML тегов)
     const cardText = word1.textContent.toLowerCase();
     const isCorrect = cardText === currentWordData.correct.toLowerCase();
     
@@ -279,7 +126,7 @@ card2.addEventListener('click', function() {
     checkAnswer(isCorrect, card2, card1);
 });
 
-// Проверка ответа
+// ПРОВЕРКА ОТВЕТА
 function checkAnswer(isCorrect, selectedCard, otherCard) {
     isAnswered = true;
     totalAttempts++;
@@ -301,7 +148,7 @@ function checkAnswer(isCorrect, selectedCard, otherCard) {
     updateProgress();
 }
 
-// Показать обратную связь
+// ПОКАЗАТЬ ОБРАТНУЮ СВЯЗЬ
 function showFeedback(isCorrect) {
     feedback.classList.add('show');
     
@@ -316,12 +163,12 @@ function showFeedback(isCorrect) {
     explanation.textContent = currentWordData.hint;
 }
 
-// Следующее слово
+// СЛЕДУЮЩЕЕ СЛОВО
 nextBtn.addEventListener('click', function() {
     showNextWord();
 });
 
-// Подсказка
+// ПОДСКАЗКА
 hintBtn.addEventListener('click', function() {
     if (isAnswered) return;
     
@@ -330,7 +177,6 @@ hintBtn.addEventListener('click', function() {
     feedbackText.className = "";
     explanation.textContent = currentWordData.hint;
     
-    // Скрываем подсказку через 3 секунды
     setTimeout(() => {
         if (!isAnswered) {
             feedback.classList.remove('show');
@@ -338,7 +184,7 @@ hintBtn.addEventListener('click', function() {
     }, 3000);
 });
 
-// Получить случайное слово без повторений
+// ПОЛУЧИТЬ СЛУЧАЙНОЕ СЛОВО БЕЗ ПОВТОРЕНИЙ
 function getRandomWord() {
     // Если использовали все слова, сбрасываем
     if (usedIndices.size >= stressWords.length) {
@@ -355,7 +201,7 @@ function getRandomWord() {
     return stressWords[randomIndex];
 }
 
-// Показать следующее слово
+// ПОКАЗАТЬ СЛЕДУЮЩЕЕ СЛОВО
 function showNextWord() {
     isAnswered = false;
     
@@ -384,7 +230,7 @@ function showNextWord() {
     updateProgress();
 }
 
-// Обновление прогресса
+// ОБНОВЛЕНИЕ ПРОГРЕССА
 function updateProgress() {
     // Прогресс-бар (циклический, каждые 10 слов)
     const progress = ((wordsDone % 10) / 10) * 100;
@@ -401,18 +247,20 @@ function updateProgress() {
     correctPercent.textContent = `${percent}%`;
 }
 
-// Инициализация при загрузке
+// ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ
 window.addEventListener('DOMContentLoaded', function() {
+    console.log('Страница загружена');
+    
     // По умолчанию выбран тренажер "Ударения"
-    document.getElementById('stress').click();
+    const stressOption = document.getElementById('stress');
+    if (stressOption) {
+        stressOption.classList.add('active-option');
+        selectedTrainerText.textContent = "Задание 4: Ударения";
+        
+        // Активируем кнопку СРАЗУ
+        startBtn.disabled = false;
+    }
     
     // Инициализируем прогресс
     updateProgress();
-
 });
-
-
-
-
-
-
