@@ -503,4 +503,21 @@ h1 i {
     .divider span {
         padding: 6px 14px;
     }
+
+}
+/* Исправление для кнопки */
+.btn-primary {
+    transition: all 0.3s ease;
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.btn-primary:not(:disabled):hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
 }
