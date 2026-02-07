@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тренажер ЕГЭ по русскому языку</title>
-    
-    <!-- Мета-теги для SEO -->
-    <meta name="description" content="Тренажер для задания 4 ЕГЭ: ударения в словах. 100+ слов из банка ФИПИ с подсказками. Бесплатно, без регистрации.">
-    <meta name="keywords" content="ЕГЭ русский язык, задание 4 ЕГЭ, ударения в словах, тренажер ЕГЭ, подготовка к ЕГЭ, ФИПИ">
-    
-    <!-- Стили -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -17,7 +14,7 @@
     <!-- Главный экран -->
     <div id="main-screen" class="screen active">
         <div class="container">
-            <h1><i class="fas fa-graduation-cap"></i> Тренажер ЕГЭ по русскому языку</h1>
+            <h1><i class="fas fa-graduation-cap"></i> Тренажер заданий ЕГЭ по русскому языку</h1>
             <p class="subtitle">Выберите тип задания для подготовки</p>
             
             <div class="trainer-options">
@@ -97,7 +94,7 @@
                 </div>
                 
                 <div class="cards-container">
-                    <div class="card" id="card1" data-type="">
+                    <div class="card" id="card1">
                         <div class="word" id="word1"></div>
                         <div class="hint">Нажмите для выбора</div>
                     </div>
@@ -106,7 +103,7 @@
                         <span>или</span>
                     </div>
                     
-                    <div class="card" id="card2" data-type="">
+                    <div class="card" id="card2">
                         <div class="word" id="word2"></div>
                         <div class="hint">Нажмите для выбора</div>
                     </div>
@@ -132,24 +129,9 @@
             </div>
         </div>
     </div>
-    </main>
-
-    <!-- ПОДВАЛ САЙТА -->
-    <footer class="site-footer">
-        <div class="container">
-            <p>© 2023 Тренажер ЕГЭ по русскому языку. Используются материалы из открытого банка заданий ФИПИ.</p>
-            <p class="footer-links">
-                <a href="#">О проекте</a> | 
-                <a href="#">Все задания ЕГЭ</a> | 
-                <a href="#">Контакты</a>
-            </p>
-        </div>
-    </footer>
+    
     <script src="script.js"></script>
-  
-</div>
 </body>
 </html>
-
 
 
